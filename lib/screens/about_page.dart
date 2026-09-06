@@ -9,8 +9,12 @@ class AboutPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-
-        title: Text("About Me"),
+        title: const Text(
+          "About Me",
+          style: TextStyle(
+            fontWeight: FontWeight.bold,
+          ),
+        ),
 
         leading: IconButton(
           icon: Icon(Icons.arrow_back),
@@ -36,27 +40,36 @@ class AboutPage extends StatelessWidget {
               mainAxisSize: MainAxisSize.min,
               children: [
 
+                const SizedBox(height: 30),
+
                 CircleAvatar(
                   radius: 50,
                   backgroundImage: AssetImage(Ainesh.profilePhoto),
                 ),
+
+                const SizedBox(height: 30),
 
                 Text(
                   Ainesh.introduction,
                   textAlign: TextAlign.center,
                 ),
 
-                SizedBox(height: 20),
+                const SizedBox(height: 30),
 
                 Text(
                   "Skills",
-                  style: TextStyle(
-                    fontSize: 20,
-                    fontWeight: FontWeight.bold,
-                  ),
+                  style: Theme.of(context).textTheme.titleLarge,
                 ),
 
-                SizedBox(height: 10),
+                const SizedBox(height: 30),
+
+                Container(
+                  height: 3,
+                  width: 40,
+                  color: const Color(0xFFE53935),
+                ),
+
+                const SizedBox(height: 30),
 
                 // Dynamically renders all skills
                 Wrap(
@@ -70,7 +83,7 @@ class AboutPage extends StatelessWidget {
                   }).toList(),
                 ),
 
-                SizedBox(height: 20),
+                const SizedBox(height: 30),
 
                 TextButton(
                     onPressed:(){

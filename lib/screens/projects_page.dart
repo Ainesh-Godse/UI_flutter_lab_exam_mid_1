@@ -32,7 +32,7 @@ class ProjectsPage extends StatelessWidget {
                   ),
                 ),
 
-                const SizedBox(height: 10),
+                const SizedBox(height: 30),
 
                 Text(project.description),
 
@@ -44,13 +44,13 @@ class ProjectsPage extends StatelessWidget {
                         const TextSpan(
                           text: "Git Link: ",
                           style: TextStyle(
-                            color: Colors.black,
+                            color: Colors.white,
                           ),
                         ),
                         TextSpan(
-                          text: project.gitlink,
+                          text: "GitHub Repository  →",
                           style: const TextStyle(
-                            color: Colors.blue,
+                            color: Color(0xFFE53935),
                             decoration: TextDecoration.underline,
                           ),
                           recognizer: TapGestureRecognizer()
@@ -79,7 +79,13 @@ class ProjectsPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Projects"),
+        title: const Text(
+          "My Projects",
+          style: TextStyle(
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+
         leading: IconButton(
           icon: Icon(Icons.arrow_back),
           onPressed: () {
@@ -100,9 +106,13 @@ class ProjectsPage extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           children: [
 
+            const SizedBox(height: 30),
+
             ...Ainesh.projects.map((project) {
               return projectCard(project);
             }),
+
+            const SizedBox(height: 10),
 
             TextButton(
               onPressed:(){

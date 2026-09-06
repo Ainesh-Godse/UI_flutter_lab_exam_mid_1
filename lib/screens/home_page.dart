@@ -10,35 +10,53 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("My Portfolio"),
-
-      ),
+        title: const Text(
+          "My Portfolio",
+          style: TextStyle(
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+      )
+      ,
       body: ResponsiveLayout(
         child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
+              const SizedBox(height: 30),
 
-              CircleAvatar(
-                radius: 50,
-                backgroundImage: AssetImage(Ainesh.profilePhoto),
+              Container(
+                padding: const EdgeInsets.all(3),
+                decoration: const BoxDecoration(
+                  shape: BoxShape.circle,
+                  color: Color(0xFFE53935),
+                ),
+                child: CircleAvatar(
+                  radius: 50,
+                  backgroundImage: AssetImage(Ainesh.profilePhoto),
+                ),
               ),
 
+              const SizedBox(height: 30),
               //name
               Text(
                 Ainesh.name,
-                style: TextStyle(
-                  fontSize: 30,
-                  fontWeight: FontWeight.bold ,
+                style: const TextStyle(
+                  fontSize: 32,
+                  fontWeight: FontWeight.bold,
+                  letterSpacing: 1.2,
                 ),
-                textAlign: TextAlign.center,
               ),
+
+              const SizedBox(height: 30),
 
               Text(
                 Ainesh.course,
                 textAlign: TextAlign.center,
               ),
 
-              TextButton(
+              const SizedBox(height: 30),
+
+              TextButton.icon(
                   onPressed:(){
                     Navigator.pushReplacement(
                       context,
@@ -50,23 +68,26 @@ class HomePage extends StatelessWidget {
                       ),
                     );
                   },
-                  child: Text("About Me")
+                  icon: const Icon(Icons.person_outline),
+                  label: const Text("About Me")
               ),
+              const SizedBox(height: 10),
 
-              TextButton(
-                  onPressed:(){
-                    Navigator.pushReplacement(
-                      context,
-                      MaterialPageRoute(
-                          builder:
-                              (context){
-                            return ProjectsPage();
-                          }
-                      ),
-                    );
-                  },
-                  child: Text("Projects")
-              ),
+              TextButton.icon(
+                onPressed:(){
+                  Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(
+                        builder:
+                            (context){
+                          return ProjectsPage();
+                        }
+                    ),
+                  );
+                },
+                icon: const Icon(Icons.code),
+                label: const Text("Projects"),
+              )
             ]
         ),
       ),
