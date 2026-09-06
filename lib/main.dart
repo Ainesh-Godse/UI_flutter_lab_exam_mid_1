@@ -1,52 +1,54 @@
 import 'package:flutter/material.dart';
+import 'package:ui_flutter_lab_exam/screens/home_page.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(MyWebsite());
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class MyWebsite extends StatelessWidget {
+  const MyWebsite({super.key});
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: CounterPage(),
-      debugShowCheckedModeBanner: false,
-    );
-  }
-}
-
-class CounterPage extends StatefulWidget {
-  const CounterPage({super.key});
-  @override
-  State<CounterPage> createState() => _CounterPageState();
-}
-
-class _CounterPageState extends State<CounterPage> {
-  int counter = 0;
-
-  void increment() {
-    setState(() {
-      counter++;
-    });
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text("Stateful Widget"),
-      ),
-      body: Center(
-        child: Text(
-          "Counter=$counter",
-            style: TextStyle(fontSize: 30),
-            ),
+      home: const HomePage(),
+      title: "My Portfolio",
+      theme: ThemeData(
+        colorScheme: ColorScheme.fromSeed(
+          seedColor: Colors.indigo,
         ),
-      floatingActionButton: 
-      FloatingActionButton(
-        onPressed: increment,
-        child: Icon(Icons.add),
+
+        appBarTheme: AppBarTheme(
+          backgroundColor: Colors.indigo,
+          foregroundColor: Colors.white,
+        ),
+
+        cardTheme: CardThemeData(
+          elevation: 4,
+          color: Colors.white,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(12),
+          ),
+        ),
+
+        textTheme: TextTheme(
+          titleLarge: TextStyle(
+            fontSize: 24,
+            fontWeight: FontWeight.bold,
+          ),
+
+          bodyLarge: TextStyle(
+            fontSize: 16,
+          ),
+        ),
+
+        elevatedButtonTheme: ElevatedButtonThemeData(
+          style: ElevatedButton.styleFrom(
+            backgroundColor: Colors.indigo,
+            foregroundColor: Colors.white,
+          ),
+        ),
       ),
+      debugShowCheckedModeBanner: false,
     );
   }
 }
